@@ -1,4 +1,5 @@
 /*
+
 Name: Christopher Rios
 
 Description: A simple program to estimate the probabilty that chord_AB & chord_CD intersect, given that points A,B,C,D are unique and randomly selected integers [0:360) along a circle
@@ -6,18 +7,20 @@ Description: A simple program to estimate the probabilty that chord_AB & chord_C
 Premise: chord_AB and chord_CD only intersect when point C or D (but not both) exist within chord_AB
 
 Result: after 1 million iteration, about 1/3 of them resulted in chord_AB and chord_CD intersecting
+
 */
 
 
 let data = [];
 function iter(){
+  
   // Initialize Necessary Functions & Data Structure
   let exclusions = Array(0); // getRandUniqueInt()
   function getRandUniqueInt(min, max) {
-  // function getRandUniqueInt(min, max) 
-  // - returns an int belonging to the half set [ min, max )
-  // - uses external array 'exclusions' to keep track or previously generated numbers
-  // - currently does not have a case to return an error if all numbers in the half set [ min, max ) have been previous generate ... code currently does an infinite loop in that case as a result 
+    // function getRandUniqueInt(min, max) 
+    // - returns an int belonging to the half set [ min, max )
+    // - uses external array 'exclusions' to keep track or previously generated numbers
+    // - currently does not have a case to return an error if all numbers in the half set [ min, max ) have been previous generate ... code currently does an infinite loop in that case as a result 
     function getRandInt(min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
     }
@@ -35,7 +38,7 @@ function iter(){
     return number;
   }
   function withinSet(x, min, max) {
-  // returns true when x is in the set [ min, max ] ... else false
+      // returns true when x is in the set [ min, max ] ... else false
       return ((x-min)*(x-max) <= 0);
   }
   
